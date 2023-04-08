@@ -94,7 +94,7 @@ import { global } from '@/global/global';
           var price = 0.
           var months = 0
           if(this.form.resource == "一个月 £15") {
-            price += 0.01
+            price += 15
             months = 1
           }
           else if(this.form.resource == "六个月 £72 (£12 monthly)") {
@@ -114,17 +114,17 @@ import { global } from '@/global/global';
           "&goods_name=testing_good"+
           "&language=cn"+
           "&merchants_id=202109208001"+
-          // "&notify_url=http://13.42.103.118:8000/validate/"+this.form.merchname+"/"+this.form.branchname+"/"+this.form.region+"/"+months+
+          // "&notify_url=http://35.178.194.182:8000/"+this.form.merchname+"/"+this.form.branchname+"/"+this.form.region+"/"+months+
           "&out_trade_no=202109208001"+rand12nums+
           "&pay_type=bankcard"+
-          "&redirect_url=http://13.42.103.118:8000/validate/"+this.form.merchname+"/"+this.form.branchname+"/"+this.form.region+"/"+months+
+          "&redirect_url=http://35.178.194.182:8000/validate/"+this.form.merchname+"/"+this.form.branchname+"/"+this.form.region+"/"+months+
           // "&redirect_url=http://localhost:9528"+
-          "&return_url=http://localhost:9528/404"+
+          "&return_url=http://localhost:9528/"+
           "&terminal_type=web"+
           "&trans_amount="+price+
           "&trans_timeout=10"
           var tk = "f1s8fqxtkagtvodbsknbwuimog5wv58v"
-          var sign = CryptoJS.MD5(args+tk).toString()
+          var sign = CryptoJS.MD5(Buffer.from(args+tk, 'utf-8').toString()).toString()
           this.url = "https://api.tgpaypro.com/v2/tgpaybankcard.php?"+args+"&sign="+sign+"&sign_type=MD5"
           const response = await fetch(this.url)
           const data = await response.text()

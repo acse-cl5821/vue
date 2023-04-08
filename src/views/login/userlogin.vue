@@ -95,7 +95,7 @@ export default {
         : (this.passwordType = '')
     },
     async handleLogin() {
-      await fetch('http://13.42.103.118:8000/validate/validate', {
+      await fetch('http://35.178.194.182:8000/validate/validate', {
         method: 'POST',
         body: JSON.stringify({ "MerchID": this.loginForm.username, "BranchID": this.loginForm.branchname })
       })

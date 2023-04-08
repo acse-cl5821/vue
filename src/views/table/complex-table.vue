@@ -121,7 +121,7 @@ export default {
         name: this.filters.name
       }
       getUserListPage(para).then(async res => {
-		await fetch('http://13.42.103.118:8000/validate/validate', {
+		await fetch('http://35.178.194.182:8000/validate/validate', {
 			method: 'POST',
 			body: JSON.stringify({ "MerchID": this.merchname, "BranchID": this.branchname})
 		})

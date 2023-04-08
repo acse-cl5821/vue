@@ -22,7 +22,13 @@ const userMap = {
     roles: ['imenus'],
     token: 'imenus',
     name: 'imenus'
-  }
+  },
+  // cqwd: {
+  //   code: 0,
+  //   roles: ['cqwd'],
+  //   token: 'cqwd',
+  //   name: 'cqwd'
+  // }
 }
 
 export default {
