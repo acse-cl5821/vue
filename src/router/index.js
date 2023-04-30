@@ -65,99 +65,99 @@ export const constantRouterMap = [
     ]
   },
  // 图表
-//  {
-//    path: '/charts',
-//    component: Layout,
-//    redirect: '/charts/DiscountFigure',
-//    name: 'charts',
-//    meta: { title: 'charts', icon: 'chart' },
-//    children: [
-//      {
-//        path: 'DiscountFigure',
-//        name: 'DiscountFigure',
-//        component: () => import('@/views/charts/DiscountFigure'),
-//        meta: { title: 'DiscountFigure', icon: 'discounting' }
-//      },
-//      {
-//        path: 'columnar',
-//        name: 'columnar',
-//        component: () => import('@/views/charts/columnar'),
-//        meta: { title: 'columnar', icon: 'columnar' }
-//      },
-//      {
-//        path: 'barGraph',
-//        name: 'barGraph',
-//        component: () => import('@/views/charts/barGraph'),
-//        meta: { title: 'barGraph', icon: 'barGraph' }
-//      },
-//      {
-//        path: 'pieChart',
-//        name: 'pieChart',
-//        component: () => import('@/views/charts/pieChart'),
-//        meta: { title: 'pieChart', icon: 'pieChart' }
-//      },
-//      {
-//        path: 'ringChart',
-//        name: 'ringChart',
-//        component: () => import('@/views/charts/ringChart'),
-//        meta: { title: 'ringChart', icon: 'ringChart' }
-//      },
-//      {
-//        path: 'waterfallCharts',
-//        name: 'waterfallCharts',
-//        component: () => import('@/views/charts/waterfallCharts'),
-//        meta: { title: 'waterfallCharts', icon: 'waterfallCharts' }
-//      },
-//      {
-//        path: 'funnelCharts',
-//        name: 'funnelCharts',
-//        component: () => import('@/views/charts/funnelCharts'),
-//        meta: { title: 'funnelCharts', icon: 'funnelCharts' }
-//      },
-//      {
-//        path: 'radarCharts',
-//        name: 'radarCharts',
-//        component: () => import('@/views/charts/radarCharts'),
-//        meta: { title: 'radarCharts', icon: 'radarCharts' }
-//      },
-//      {
-//        path: 'sankeyChart',
-//        name: 'sankeyChart',
-//        component: () => import('@/views/charts/sankeyChart'),
-//        meta: { title: 'sankeyChart', icon: 'sankeyChart' }
-//      },
-//      {
-//        path: 'heatmapChart',
-//        name: 'heatmapChart',
-//        component: () => import('@/views/charts/heatmapChart'),
-//        meta: { title: 'heatmapChart', icon: 'heatmapChart' }
-//      },
-//      {
-//        path: 'scatterChart',
-//        name: 'scatterChart',
-//        component: () => import('@/views/charts/scatterChart'),
-//        meta: { title: 'scatterChart', icon: 'scatterChart' }
-//      },
-//      {
-//        path: 'candleChart',
-//        name: 'candleChart',
-//        component: () => import('@/views/charts/candleChart'),
-//        meta: { title: 'candleChart', icon: 'candleChart' }
-//      },
-//      {
-//        path: 'gaugeChart',
-//        name: 'gaugeChart',
-//        component: () => import('@/views/charts/gaugeChart'),
-//        meta: { title: 'gaugeChart', icon: 'gaugeChart' }
-//      },
-//      {
-//        path: 'treeChart',
-//        name: 'treeChart',
-//        component: () => import('@/views/charts/treeChart'),
-//        meta: { title: 'treeChart', icon: 'treeChart' }
-//      }
-//    ]
-//  },
+  {
+    path: '/charts',
+    component: Layout,
+    redirect: '/charts/DiscountFigure',
+    name: '订单数据',
+    meta: { title: '订单数据', icon: 'chart' },
+    children: [
+      {
+        path: 'DiscountFigure',
+        name: 'DiscountFigure',
+        component: () => import('@/views/charts/DiscountFigure'),
+        meta: { title: 'DiscountFigure', icon: 'discounting' }
+      },
+      {
+        path: 'columnar',
+        name: 'columnar',
+        component: () => import('@/views/charts/columnar'),
+        meta: { title: 'columnar', icon: 'columnar' }
+      },
+      // {
+      //   path: 'barGraph',
+      //   name: 'barGraph',
+      //   component: () => import('@/views/charts/barGraph'),
+      //   meta: { title: 'barGraph', icon: 'barGraph' }
+      // },
+      {
+        path: 'pieChart',
+        name: 'pieChart',
+        component: () => import('@/views/charts/pieChart'),
+        meta: { title: 'pieChart', icon: 'pieChart' }
+      },
+      // {
+      //   path: 'ringChart',
+      //   name: 'ringChart',
+      //   component: () => import('@/views/charts/ringChart'),
+      //   meta: { title: 'ringChart', icon: 'ringChart' }
+      // },
+      // {
+      //   path: 'waterfallCharts',
+      //   name: 'waterfallCharts',
+      //   component: () => import('@/views/charts/waterfallCharts'),
+      //   meta: { title: 'waterfallCharts', icon: 'waterfallCharts' }
+      // },
+      // {
+      //   path: 'funnelCharts',
+      //   name: 'funnelCharts',
+      //   component: () => import('@/views/charts/funnelCharts'),
+      //   meta: { title: 'funnelCharts', icon: 'funnelCharts' }
+      // },
+      // {
+      //   path: 'radarCharts',
+      //   name: 'radarCharts',
+      //   component: () => import('@/views/charts/radarCharts'),
+      //   meta: { title: 'radarCharts', icon: 'radarCharts' }
+      // },
+      // {
+      //   path: 'sankeyChart',
+      //   name: 'sankeyChart',
+      //   component: () => import('@/views/charts/sankeyChart'),
+      //   meta: { title: 'sankeyChart', icon: 'sankeyChart' }
+      // },
+      {
+        path: 'heatmapChart',
+        name: 'heatmapChart',
+        component: () => import('@/views/charts/heatmapChart'),
+        meta: { title: 'heatmapChart', icon: 'heatmapChart' }
+      },
+      // {
+      //   path: 'scatterChart',
+      //   name: 'scatterChart',
+      //   component: () => import('@/views/charts/scatterChart'),
+      //   meta: { title: 'scatterChart', icon: 'scatterChart' }
+      // },
+      // {
+      //   path: 'candleChart',
+      //   name: 'candleChart',
+      //   component: () => import('@/views/charts/candleChart'),
+      //   meta: { title: 'candleChart', icon: 'candleChart' }
+      // },
+      // {
+      //   path: 'gaugeChart',
+      //   name: 'gaugeChart',
+      //   component: () => import('@/views/charts/gaugeChart'),
+      //   meta: { title: 'gaugeChart', icon: 'gaugeChart' }
+      // },
+      // {
+      //   path: 'treeChart',
+      //   name: 'treeChart',
+      //   component: () => import('@/views/charts/treeChart'),
+      //   meta: { title: 'treeChart', icon: 'treeChart' }
+      // }
+    ]
+ },
 //  // 地图
 //  {
 //    path: '/map',
@@ -410,13 +410,12 @@ export const constantRouterMap = [
       component: () => import('@/views/table/complex-table'),
       meta: { title: '门店信息', icon: 'user'}
     },
-   //  {
-   //    path: 'TreeTable',
-   //    name: 'TreeTable',
-   //    component: () => import('@/views/table/tree-table/index'),
-   //    meta: { title: 'treeTable' }
-   //  }
-
+    // {
+    //   path: 'TreeTable',
+    //   name: 'TreeTable',
+    //   component: () => import('@/views/table/tree-table/index'),
+    //   meta: { title: 'treeTable' }
+    // }
   ]
 },
   // 表单
@@ -424,15 +423,15 @@ export const constantRouterMap = [
     path: '/form',
     component: Layout,
     redirect: '/form/BaseForm',
-    name: 'form',
+    name: '充值',
     meta: {
-      title: 'form',
-      icon: 'form'
+      title: '充值',
+      icon: 'shoppingCard'
     },
     children: [
       {
         path: 'BaseForm',
-        name: '付款充值',
+        name: '平台充值',
         component: () => import('@/views/form/BaseForm'),
         meta: { title: 'BaseForm', icon: 'shoppingCard' }
       },
@@ -442,12 +441,12 @@ export const constantRouterMap = [
 //        component: () => import('@/views/form/VueEditor'),
 //        meta: { title: 'VueEditor' }
 //      },
-//      {
-//        path: 'Upload',
-//        name: 'Upload',
-//        component: () => import('@/views/form/Upload'),
-//        meta: { title: 'Upload' }
-//      }
+      {
+        path: 'Upload',
+        name: '余额充值',
+        component: () => import('@/views/form/Upload'),
+        meta: { title: '余额充值', icon: 'money'}
+      }
     ]
   },
    // 第三方官网

@@ -15,6 +15,9 @@
                     <el-form-item label="分店名称">
                         <el-input v-model="form.branchname" placeholder="BranchId"></el-input>
                     </el-form-item>
+                    <el-form-item label="当前余额">
+                      <el-input v-model="form.balance" placeholder="Balance" :disabled="true"></el-input>
+                    </el-form-item>
                     <!-- <el-form-item label="选择平台">
                         <el-checkbox-group v-model="form.type">
                             <el-checkbox label="HungryPanda" name="hp"></el-checkbox>
@@ -43,6 +46,7 @@
                             <el-radio label="银行卡"></el-radio>
                             <el-radio label="微信支付"></el-radio>
                             <el-radio label="支付宝"></el-radio>
+                            <el-radio label="余额支付"></el-radio>
                         </el-radio-group>
                     </el-form-item>
                     <!-- <el-form-item label="日期时间">
@@ -75,6 +79,7 @@ import { global } from '@/global/global';
           form: {
             merchname: sessionStorage.getItem('username'),
             branchname: sessionStorage.getItem('branchname'),
+            balance: sessionStorage.getItem('balance'),
             region: '',
             resource: '一个月 £15',
             paytype: '银行卡',
@@ -87,8 +92,8 @@ import { global } from '@/global/global';
             this.$message.error("请选择充值平台");
             return;
           }
-          if(this.form.paytype !== '银行卡'){
-            this.$message.error("目前只支持银行卡付款");
+          if(this.form.paytype !== '银行卡' && this.form.paytype !== '余额支付'){
+            this.$message.error("目前只支持银行卡付款或余额支付");
             return;
           }
           var price = 0.
@@ -105,6 +110,17 @@ import { global } from '@/global/global';
             price += 120
             months = 12
           }
+          if(this.form.paytype === '余额支付') {
+            if(price > this.form.balance) {
+              this.$message.error("余额不足，请先充值余额，或使用其他支付方式");
+              return;
+            }
+            else {
+              fetch("http://3.11.136.6:8000/validate/"+this.form.merchname+"/"+this.form.branchname+"/"+this.form.region+"/"+months)
+              open("http://3.11.136.6:8000/validate/"+this.form.merchname+"/"+this.form.branchname+"/-"+price, '_self')
+              return;
+            }
+          }
           var rand12nums = ''
           for (let i = 0; i < 12; i++) {
             rand12nums+=Math.round(Math.random()*9)
@@ -114,10 +130,10 @@ import { global } from '@/global/global';
           "&goods_name=testing_good"+
           "&language=cn"+
           "&merchants_id=202109208001"+
-          // "&notify_url=http://35.178.194.182:8000/"+this.form.merchname+"/"+this.form.branchname+"/"+this.form.region+"/"+months+
+          // "&notify_url=http://3.11.136.6:8000/"+this.form.merchname+"/"+this.form.branchname+"/"+this.form.region+"/"+months+
           "&out_trade_no=202109208001"+rand12nums+
           "&pay_type=bankcard"+
-          "&redirect_url=http://35.178.194.182:8000/validate/"+this.form.merchname+"/"+this.form.branchname+"/"+this.form.region+"/"+months+
+          "&redirect_url=http://3.11.136.6:8000/validate/"+this.form.merchname+"/"+this.form.branchname+"/"+this.form.region+"/"+months+
           // "&redirect_url=http://localhost:9528"+
           "&return_url=http://localhost:9528/"+
           "&terminal_type=web"+

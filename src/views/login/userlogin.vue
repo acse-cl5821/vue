@@ -95,7 +95,7 @@ export default {
         : (this.passwordType = '')
     },
     async handleLogin() {
-      await fetch('http://35.178.194.182:8000/validate/validate', {
+      await fetch('http://3.11.136.6:8000/validate/validate', {
         method: 'POST',
         body: JSON.stringify({ "MerchID": this.loginForm.username, "BranchID": this.loginForm.branchname })
       })
@@ -108,6 +108,7 @@ export default {
         if (this.response.code == 0){
             sessionStorage.setItem('username',this.loginForm.username)
             sessionStorage.setItem('branchname',this.loginForm.branchname)
+            sessionStorage.setItem('balance',this.response.Balance)
             this.$store.dispatch('Login', this.loginForm).then(res => {
               this.$router.push({ path: '/dashboard/dashboard' })
             })

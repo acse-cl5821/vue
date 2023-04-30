@@ -107,6 +107,7 @@ export default {
       total: 0,
       page: 1,
       sels: [],
+	  balance: 0,
     }
   },
   methods: {
@@ -121,7 +122,7 @@ export default {
         name: this.filters.name
       }
       getUserListPage(para).then(async res => {
-		await fetch('http://35.178.194.182:8000/validate/validate', {
+		await fetch('http://3.11.136.6:8000/validate/validate', {
 			method: 'POST',
 			body: JSON.stringify({ "MerchID": this.merchname, "BranchID": this.branchname})
 		})
@@ -145,6 +146,8 @@ export default {
 					sessionStorage.setItem('FT_Valid', this.response.FT_Valid)
 				else
 					sessionStorage.setItem('FT_Valid', '未开通')
+				this.balance = String(this.response.Balance)
+				sessionStorage.setItem('balance', this.response.Balance)
 			}
 		})
         this.total = 4
@@ -153,6 +156,7 @@ export default {
 			{id:'2', name:this.merchname, addr: this.branchname, age:'Deliveroo', birth:sessionStorage.getItem('DR_Valid')},
 			{id:'3', name:this.merchname, addr: this.branchname, age:'HungryPanda', birth:sessionStorage.getItem('HP_Valid')},
 			{id:'4', name:this.merchname, addr: this.branchname, age:'Fantuan', birth:sessionStorage.getItem('FT_Valid')},
+			{id:'5', name:this.merchname, addr: this.branchname, age:'余额', birth: this.balance},
 		]
 		// this.total = res.data.total
 		// this.users = res.data.users
