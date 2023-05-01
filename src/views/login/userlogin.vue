@@ -51,8 +51,8 @@ export default {
     // }
     return {
       loginForm: {
-        username: 'imenus',
-        branchname: 'mqlhb',
+        username: '',
+        branchname: '',
         password: ''
       },
       checked: false,
