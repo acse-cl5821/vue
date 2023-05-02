@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-date-picker id="start" type="date" placeholder="选择起始日期" v-model="startdate"></el-date-picker>
+    <el-date-picker id="start" type="date" placeholder="选择起始日期" v-model="startdate" :disabled="true"></el-date-picker>
     <el-date-picker id="end" type="date" placeholder="选择终止日期" v-model="enddate"></el-date-picker>
     <el-button type="primary" @click="getData">查询</el-button>
     <p class="warn-content">
@@ -36,6 +36,7 @@ export default {
   },
   methods: {
     async getData(){
+      await this.setDates()
       await fetch('http://3.11.136.6:8000/order/num/'+this.merchname+'/'+this.branchname+'/'+document.getElementById('start').value+'/'+document.getElementById('end').value, {
 			  method: 'GET'
 		  })
@@ -50,6 +51,13 @@ export default {
 		  .then(response => {
         this.chartData2.rows = response.data
       })
+    },
+    setDates(){
+      this.startdate = new Date(this.enddate.getYear()+1900,this.enddate.getMonth(),1)
+      this.enddate = new Date(this.enddate.getYear()+1900,this.enddate.getMonth()+1,0)
+      if(this.enddate.getMonth() == new Date().getMonth()){
+        this.enddate = new Date()
+      }
     }
   },
   mounted() {
